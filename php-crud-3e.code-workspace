@@ -1,0 +1,34 @@
+{
+	"folders": [
+		{
+			"name": "php-crud-3e",
+			"path": "."
+		},
+		{
+			"name": "interfaces",
+			"path": "../../../Users/soporte/Desktop/Cristian G/3E/Programación Web/Proyecto CRUD/php-crud-3e/interfaces"
+		}
+	],
+	"settings": {
+		"workbench.colorCustomizations": {
+			"activityBar.activeBackground": "#832561",
+			"activityBar.background": "#832561",
+			"activityBar.foreground": "#e7e7e7",
+			"activityBar.inactiveForeground": "#e7e7e799",
+			"activityBarBadge.background": "#121907",
+			"activityBarBadge.foreground": "#e7e7e7",
+			"commandCenter.border": "#e7e7e799",
+			"sash.hoverBorder": "#832561",
+			"statusBar.background": "#ab307e",
+			"statusBar.foreground": "#e7e7e7",
+			"statusBarItem.hoverBackground": "#ca4499",
+			"statusBarItem.remoteBackground": "#ab307e",
+			"statusBarItem.remoteForeground": "#e7e7e7",
+			"titleBar.activeBackground": "#832561",
+			"titleBar.activeForeground": "#e7e7e7",
+			"titleBar.inactiveBackground": "#83256199",
+			"titleBar.inactiveForeground": "#e7e7e799"
+		},
+		"liveServer.settings.multiRootWorkspaceName": "php-crud-3e"
+	}
+}
