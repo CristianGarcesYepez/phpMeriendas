@@ -17,7 +17,7 @@
 </head>
 <body>
     <div class="d-flex flex-column min-vh-100 justify-content-between">
-        <?php include_once 'cabecera.php'; ?>
+        <?php include 'cabecera.php'; ?>
         <div class="d-grid gap-2 mt-3 text-center">
             <?php
                 if (isset($_SESSION['mensaje'])) {
@@ -166,4 +166,4 @@
     });
   </script>
 </body>
-</html> 
+</html>

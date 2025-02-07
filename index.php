@@ -9,6 +9,8 @@
     <title>Login - Gestión de Usuarios</title>
     <!-- BOOTSTRAP 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <style>
         body {
             background-color: #f8f9fa;
@@ -32,39 +34,45 @@
     </style>
 </head>
 <body>
-    <div class="d-flex justify-content-center align-items-center mt-3">
-        <?php
-            if (isset($_SESSION['mensajeLogout'])) {
-                echo '<div id="mensaje-alerta">' . $_SESSION['mensajeLogout'] . '</div>';
-                unset($_SESSION['mensajeLogout']);
-            }
-        ?>
-    </div>
-    <div class="container min-vh-100 d-flex justify-content-center align-items-center">
-        <div class="login-container p-5">
-            <h2 class="text-center mb-4">Gestión de Usuarios</h2>
-            <form action="interfaces/loginInterface.php" method="POST" class="needs-validation" novalidate>
-                <div class="mb-3">
-                    <label for="usuario" class="form-label">Usuario</label>
-                    <input type="text" class="form-control" id="usuario" name="usuario" required>
+    <div class="d-flex flex-column min-vh-100 justify-content-between">
+        <?php include_once 'cabecera.php'; ?>
+        <div class="container my-8">
+            <div class="d-flex justify-content-center align-items-center mt-3">
+                <?php
+                    if (isset($_SESSION['mensajeLogout'])) {
+                        echo '<div id="mensaje-alerta">' . $_SESSION['mensajeLogout'] . '</div>';
+                        unset($_SESSION['mensajeLogout']);
+                    }
+                ?>
+            </div>
+            <div class="container min-vh-100 d-flex justify-content-center align-items-center">
+                <div class="login-container p-5">
+                    <h2 class="text-center mb-4">Gestión de Usuarios</h2>
+                    <form action="interfaces/loginInterface.php" method="POST" class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label for="usuario" class="form-label">Usuario</label>
+                            <input type="text" class="form-control" id="usuario" name="usuario" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-custom">Acceder</button>
+                        </div>
+                        <div class="d-grid gap-2 mt-3 text-center">
+                            <?php
+                                if (isset($_SESSION['mensaje'])) {
+                                    echo $_SESSION['mensaje'];
+                                    unset($_SESSION['mensaje']);
+                                }
+                            ?>
+                        </div>
+                    </form>
                 </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
-                </div>
-                <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-custom">Acceder</button>
-                </div>
-                <div class="d-grid gap-2 mt-3 text-center">
-                    <?php
-                        if (isset($_SESSION['mensaje'])) {
-                            echo $_SESSION['mensaje'];
-                            unset($_SESSION['mensaje']);
-                        }
-                    ?>
-                </div>
-            </form>
+            </div>
         </div>
+        <?php include_once('pie.php'); ?>
     </div>
 
     <!-- BOOTSTRAP 5 SCRIPTS -->

@@ -11,9 +11,7 @@
 </head>
 <body>
     <div class="d-flex flex-column min-vh-100 justify-content-between">
-
         <?php include_once 'cabecera.php'; ?>
-        
         <div class="container my-8">
             <div class="row">
                 <div class="col-md-6 mx-auto">
@@ -65,7 +63,6 @@
                 </div>
             </div>
         </div>
-        
         <?php include_once('pie.php'); ?>
     </div>
 
@@ -89,4 +86,4 @@
         })()
     </script>
 </body>
-</html> 
+</html>
