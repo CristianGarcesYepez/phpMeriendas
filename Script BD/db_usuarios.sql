@@ -66,7 +66,8 @@ VALUES
 INSERT INTO administradores (Usuario, Correo, Contrasena)
 VALUES
 ('cagy', 'cagy@mail.com', '123'),  -- Se recomienda usar HASH en la aplicación
-('admin2', 'admin2@mail.com', 'admin456');
+('admin2', 'admin2@mail.com', 'admin456'),
+('mela', 'mela@mail.com', '061222');
 
 SELECT * FROM clientes;
 
