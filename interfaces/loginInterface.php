@@ -11,7 +11,7 @@
         if($auth != null) {
             $_SESSION['usuario'] = $auth;
             $_SESSION['mensaje'] = "<div class='alert alert-success' role='alert'><strong>✨Bienvenido al sistema✨: $usuario</strong></div>";
-            header('Location: ../dashboard.php');
+            header('Location: ../menu.php');
             exit();
         } else {
             $_SESSION['mensaje'] = "<div class='alert alert-danger' role='alert'><strong>Usuario o contraseña incorrectos❌</strong></div>";

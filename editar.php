@@ -24,21 +24,21 @@
             <h2 class="text-center mb-5">Editar Cliente { <?php print_r(value: $id)?> }</h2>
             <form action="interfaces/actualizarClienteInterface.php" method="POST" class="needs-validation" novalidate>
               <div class="mb-3">
-                <input name="ID" type="hidden" class="form-control" value="<?php echo $cliente['ID']; ?>"required readonly>
+                <input name="ID" type="hidden" class="form-control" value="<?php echo $cliente['id']; ?>"required readonly>
                 <div class="form-group mb-2">
-                  <input name="Nombre" type="text" class="form-control" value="<?php echo $cliente['Nombre']; ?>" placeholder="Actualizar Nombre del Cliente" required>
+                  <input name="Nombre" type="text" class="form-control" value="<?php echo $cliente['nombre']; ?>" placeholder="Actualizar Nombre del Cliente" required>
                 </div>
                 
                 <div class="form-group mb-2">
-                  <input name="Correo" type="email" class="form-control" value="<?php echo $cliente['Correo']; ?>" placeholder="Actualizar Correo" required>
+                  <input name="Telefono" type="text" class="form-control" value="<?php echo $cliente['telefono']; ?>" placeholder="Actualizar Telefono" required>
                 </div>
                 
                 <div class="form-group mb-2">
-                  <input name="Telefono" type="text" class="form-control" value="<?php echo $cliente['Telefono']; ?>" placeholder="Actualizar Telefono" required>
+                  <input name="Etapa" type="text" class="form-control" value="<?php echo $cliente['etapa']; ?>" placeholder="Actualizar Etapa" required>
                 </div>
-                
+
                 <div class="form-group mb-2">
-                  <input name="Direccion" type="text" class="form-control" value="<?php echo $cliente['Direccion']; ?>" placeholder="Actualizar Direccion" required>
+                  <input name="Direccion" type="text" class="form-control" value="<?php echo $cliente['direccion']; ?>" placeholder="Actualizar Direccion" required>
                 </div>
 
                 <div class="alert alert-danger mt-2 d-none" id="errorMessage">
@@ -46,7 +46,9 @@
                 </div>
               </div>
               <div class="d-grid gap-2">
-                <button class="btn btn-success w-100" type="submit" name="update">Actualizar</button>
+                <button class="btn btn-success w-100" type="submit" name="update">
+                  <i class="fa fa-retweet"></i> Actualizar
+                </button>
                 <a href="dashboard.php" class="btn btn-secondary">
                   <i class="fas fa-arrow-left"></i> Volver
                 </a>

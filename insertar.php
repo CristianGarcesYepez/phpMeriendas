@@ -29,13 +29,6 @@
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="correo" class="form-label">Correo:</label>
-                                    <input type="email" name="Correo" class="form-control" required>
-                                    <div class="invalid-feedback">
-                                        Ingrese un correo válido
-                                    </div>
-                                </div>
-                                <div class="mb-3">
                                     <label for="telefono" class="form-label">Teléfono:</label>
                                     <input type="tel" name="Telefono" class="form-control" required>
                                     <div class="invalid-feedback">
@@ -43,8 +36,47 @@
                                     </div>
                                 </div>
                                 <div class="mb-3">
+                                    <label for="etapa" class="form-label">Etapa:</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input etapa-check" type="checkbox" value="Amaranto" 
+                                            id="checkAmaranto" name="Etapa">
+                                        <label class="form-check-label" for="checkAmaranto">Amaranto</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input etapa-check" type="checkbox" value="Bromelia" 
+                                            id="checkBromelia" name="Etapa">
+                                        <label class="form-check-label" for="checkBromelia">Bromelia</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input etapa-check" type="checkbox" value="Camelia" 
+                                            id="checkCamelia" name="Etapa">
+                                        <label class="form-check-label" for="checkCamelia">Camelia</label>
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        La etapa es obligatoria
+                                    </div>
+                                </div>
+                                <div class="mb-3">
                                     <label for="direccion" class="form-label">Dirección:</label>
-                                    <textarea name="Direccion" class="form-control" rows="3" required></textarea>
+                                   <div class="form-floating">
+                                        <select name="manzana" class="form-select form-select-sm mb-3" required>
+                                            <option value="">Seleccione un numero de manzana</option>
+                                            <?php
+                                                for($i = 1; $i <= 25; $i++) {
+                                                    echo "<option value='$i'>Manzana #$i</option>";
+                                                }
+                                            ?>
+                                        </select>
+                                        <select name="villa" class="form-select form-select-sm mb-3" required>
+                                            <option value="">Seleccione el numero de Villa</option>
+                                            <?php
+                                                for($i = 1; $i <= 35; $i++) {
+                                                    echo "<option value='$i'>Villa #$i</option>";
+                                                }
+                                            ?>
+                                        </select>
+                                        <input type="hidden" name="Direccion" id="direccionCompleta">
+                                   </div>
                                     <div class="invalid-feedback">
                                         La dirección es obligatoria
                                     </div>
@@ -84,6 +116,28 @@
                     }, false)
                 })
         })()
+    </script>
+    <script>
+        document.querySelectorAll('.etapa-check').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    document.querySelectorAll('.etapa-check').forEach(cb => {
+                        if (cb !== this) cb.checked = false;
+                    });
+                }
+            });
+        });
+    </script>
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const manzana = document.querySelector('select[name="manzana"]').value;
+            const villa = document.querySelector('select[name="villa"]').value;
+            
+            if (manzana && villa) {
+                const direccionCompleta = `Manzana #${manzana} Villa #${villa}`;
+                document.getElementById('direccionCompleta').value = direccionCompleta;
+            }
+        });
     </script>
 </body>
 </html>

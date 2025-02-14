@@ -1,21 +1,23 @@
 <?php
     include_once 'conexion.php';
     
-    function insertarCliente($nombre,$correo,$telefono,$direccion){
+    function insertarCliente($nombre,$telefono,$etapa, $direccion){
 
         try{
             $conn = conectar();// 1. Conectamos a la base de datos
 
-            $sql = "INSERT INTO clientes (nombre, correo, telefono, direccion) 
-                VALUES (:nombre, :correo, :telefono, :direccion)"; // 2. Definimos la consulta SQL
+            $sql = "INSERT INTO clientes (nombre, telefono, etapa, direccion) 
+                VALUES (:nombre, :telefono, :etapa, :direccion)"; // 2. Definimos la consulta SQL
+
 
             $stmt = $conn->prepare($sql); // 3. Preparamos la consulta SQL
             $stmt->bindParam(':nombre', $nombre);
-            $stmt->bindParam(':correo', $correo);
             $stmt->bindParam(':telefono', $telefono);
+            $stmt->bindParam(':etapa', $etapa);
             $stmt->bindParam(':direccion', $direccion);
-            $stmt->execute(); // 5. Ejecutamos la consulta SQL
+    
 
+            $stmt->execute(); // 5. Ejecutamos la consulta SQL
             return $conn->lastInsertId(); // 6. Retornamos el id del registro insertado
 
         } catch (PDOException $e) {
@@ -24,23 +26,26 @@
         }
     }
 
-    function actualizarCliente($id,$nombre,$correo,$telefono,$direccion){
+    function actualizarCliente($id,$nombre,$telefono,$etapa,$direccion){
         try{
             $conn = conectar();// 1. Conectamos a la base de datos
 
+
             $sql = "UPDATE clientes SET 
                     nombre = :nombre,
-                    correo = :correo,
                     telefono = :telefono,
+                    etapa = :etapa,
                     direccion = :direccion
                     WHERE id = :id"; // 2. Definimos la consulta SQL
 
+
             $stmt = $conn->prepare($sql); // 3. Preparamos la consulta SQL
             $stmt->bindParam(':nombre', $nombre); // 4. Asignamos un valor a cada parametro
-            $stmt->bindParam(':correo', $correo);
             $stmt->bindParam(':telefono', $telefono);
+            $stmt->bindParam(':etapa', $etapa);
             $stmt->bindParam(':direccion', $direccion);
             $stmt->bindParam(':id', $id);
+
             $stmt->execute(); // 5. Ejecutamos la consulta SQL
 
             return $stmt->rowCount(); // 6. Retornamos el numero de registros actualizados
@@ -109,7 +114,7 @@
     function mostrarClientes() {
         try {
             $conn = conectar();
-            $sql = "SELECT id, nombre, correo, telefono, direccion FROM clientes";
+            $sql = "SELECT id, nombre, telefono, etapa, direccion FROM clientes";
             $stmt = $conn->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -5,7 +5,7 @@ function conectar(){
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "db_usuarios";
+    $dbname = "db_meriendas";
 
     try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -18,4 +18,3 @@ function conectar(){
     }
 
 }//end function conectar
-?>

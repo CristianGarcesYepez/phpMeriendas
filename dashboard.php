@@ -45,17 +45,17 @@
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h4>Lista de Clientes</h4>
                             <a href="insertar.php" class="btn btn-primary">
-                                <i class="fas fa-plus"></i> Nuevo Cliente
+                                <i class="fa fa-plus-circle"></i> Nuevo Cliente
                             </a>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body table-responsive-sm mb-3">
                             <table class="table table-bordered table-hover" id="datosClientes" style="width:100%">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
                                         <th>Nombre</th>
-                                        <th>Correo</th>
                                         <th>Teléfono</th>
+                                        <th>Etapa</th>
                                         <th>Dirección</th>
                                         <th>Acciones</th>
                                     </tr>
@@ -66,12 +66,12 @@
                                         <tr>
                                             <td><?php echo $cliente['id']; ?></td>
                                             <td><?php echo $cliente['nombre']; ?></td>
-                                            <td><?php echo $cliente['correo']; ?></td>
                                             <td><?php echo $cliente['telefono']; ?></td>
+                                            <td><?php echo $cliente['etapa']; ?></td>
                                             <td><?php echo $cliente['direccion']; ?></td>
                                             <td>
-                                                <a href="editar.php?id=<?php echo $cliente['id']; ?>" class="btn btn-warning btn-sm">
-                                                    <i class="fas fa-edit"></i>
+                                                <a href="editar.php?id=<?php echo $cliente['id']; ?>" class="btn btn-warning">
+                                                    <i class="fas fa-marker"></i>
                                                 </a>
                                                 <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-cliente-id="<?php echo $cliente['id']; ?>" data-cliente-nombre="<?php echo $cliente['nombre']; ?>">
                                                     <i class="far fa-trash-alt"></i>
@@ -86,10 +86,11 @@
                 </div>
             </div>
             <div class="d-flex justify-content-end mt-3">
-                <a href="interfaces/logoutInterface.php" class="btn btn-danger btn-lg">
-                    <i class="fas fa-arrow-left"></i> Salir
+                <a href="menu.php" class="btn btn-danger btn-lg">
+                    <i class="fa fa-arrow-circle-left"></i> Salir
                 </a>
             </div>
+
         </div>
         <?php include_once 'pie.php'; ?>
 
